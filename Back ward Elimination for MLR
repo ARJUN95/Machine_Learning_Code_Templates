@@ -1,0 +1,14 @@
+#building optimal model using backward elimination
+import statsmodels.formula.api as sm
+#arr = np.append(arr=X, values=np.ones((50,1)).astype(int),axis=1) # we are adding ones to X
+# to add 1 at beguining we need to add matrix of features X to 1
+# so replace arr and values 
+X = np.append(arr=np.ones((50,1)).astype(int), values=X,axis=1)
+X_opt = X[:, [0,1,2,3,4,5]]
+regressor_OLS = sm.OLS(endog=y, exog=X_opt).fit()
+regressor_OLS.summary()
+# after removing 2nd feature
+X_opt = X[:, [0,1,3,4,5]]
+regressor_OLS = sm.OLS(endog=y, exog=X_opt).fit()
+regressor_OLS.summary()
+# repeat till optimal mode is got
