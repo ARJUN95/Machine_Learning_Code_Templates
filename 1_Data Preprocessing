@@ -16,6 +16,9 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0) #axis = 0
 imputer = imputer.fit(X[:, 1:3]) # upper bound is exclued so its 1 : 2
 X[:, 1:3] = imputer.transform(X[:, 1:3]) #  takes the col and trans it 
 
+#Dummy variable
+df = pd.get_dummies(df, columns=[
+    "colname1", "colname2", "colname3",])
 # Encoding categorical data
 
 # Encoding the Independent Variable
