@@ -27,6 +27,18 @@ df = df.drop(nominal_columns, axis=1)
     
 # Encoding categorical data
 
+from sklearn.preprocessing import LabelBinarizer
+encoder = LabelBinarizer()
+y = encoder.fit_transform(y)
+
+-----------------------
+INPUT -> ['setosa', 'versicolor', 'virginica']
+OUTPUT ->
+[1, 0, 0],
+[1, 0, 0],
+[1, 0, 0],
+--------------------------
+
 # Encoding the Independent Variable
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X = LabelEncoder()
